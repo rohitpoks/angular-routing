@@ -1,0 +1,3 @@
+<ul><li *ngFor="let student of students">{{student.name}} <button type="button" (click)="setID(student.id)" routerLink="create">Edit</button> <button type="button" [routerLink]="['details/', student.id]">Details</button></li></ul>
+
+

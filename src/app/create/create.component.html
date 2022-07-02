@@ -1,0 +1,26 @@
+<form [formGroup]="registrationForm">
+
+ <div>
+  <label for="name">Name</label>
+  <input type="text" id="name" formControlName="name">
+  <small *ngIf="name?.invalid && name?.touched" class="error__message">Please enter a name!</small>
+ </div>
+
+ <div>
+  <label for="name">Gender</label>
+  <input type="text" id="gender" formControlName="gender">
+  <small *ngIf="gender?.invalid && gender?.touched" class="error__message">Please enter a gender!</small>
+ </div>
+
+ <div>
+  <label for="class_rank">Class Rank</label>
+  <input type="number" id="class_rank" formControlName="class_rank">
+  <small *ngIf=" class_rank?.invalid && class_rank?.touched" class="error__message">Please enter a class rank!</small>
+ </div>
+
+  <button *ngIf="!editStatus" type="submit" (click)="onSubmit(registrationForm.value)" [disabled]="registrationForm.invalid" routerLink="">Submit</button>
+ <hr>
+   <button *ngIf="editStatus" type="submit" (click)="onEdit(registrationForm.value)" [disabled]="registrationForm.invalid" routerLink="">Submit</button>
+
+<button type="cancel" routerLink="">Cancel</button>
+</form>
